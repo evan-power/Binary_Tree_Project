@@ -60,14 +60,72 @@ void BinaryTree::insert(const int key)
 }
 
 
+void BinaryTree::remove(Node* parent, Node* leaf)
+{
+	if (leaf->left != nullptr && leaf->right != nullptr)
+	{
+		
+	}
+	else if (leaf->left != nullptr)
+	{
+
+	}
+	else if (leaf->right != nullptr)
+	{
+		
+	}
+	else
+	{
+		
+	}
+}
+
+
+void BinaryTree::remove(const int key, Node* leaf)
+{	
+	if (leaf == nullptr)
+	{
+		std::abort();
+	}
+
+	if (key < leaf->data)
+	{
+		if (leaf->left->data == key)
+		{
+			remove(leaf, leaf->left);
+		}
+		else
+		{
+			remove(key, leaf->left);
+		}
+	}
+	else if (key > leaf->data)
+	{
+		if (leaf->left->data == key)
+		{
+			remove(leaf, leaf->right);
+		}
+		else
+		{
+			remove(key, leaf->right);
+		}
+	}
+}
+
+
 void BinaryTree::remove(const int key)
 {
-
+	remove(key, root);
 }
 
 
 Node* BinaryTree::search(const int key, Node* leaf)
 {
+	if (leaf == nullptr)
+	{
+		std::abort();
+	}
+
 	if (key < leaf->data)
 	{
 		search(key, leaf->left);
